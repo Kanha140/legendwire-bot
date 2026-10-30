@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: legendwire-authzen-bot
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /health
+    envVars:
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: ALLOWED_CHANNEL_ID
+        value: "1565799819736387646"
+      - key: ALLOWED_ROLE_ID
+        value: "1565799860114817165"
+      - key: SELLER_KEY
+        sync: false
+      - key: DEFAULT_PRODUCT
+        value: "LEGEND WIRE"
+      - key: API_BASE_URL
+        value: "https://protal.authzen.site/api/v1/licenses"
+      - key: API_HOST
+        value: "protal.authzen.site"
+      - key: CF_EDGE_IP
+        value: "104.21.7.28"
+      - key: PORT
+        value: "10000"
+      - key: BOT_PREFIX
+        value: "!"
